@@ -11,12 +11,17 @@ int main()
 
 	//단어 랜덤으로 선정
 	int index;
+	string dap;
 
 	srand(time(0));
 	index = rand() % 15;
+	dap = fruits[index];
 
 	//게임 진행(행맨)
+	while (true)
+	{
 
+	}
 
 
 	//최종결과 출력
