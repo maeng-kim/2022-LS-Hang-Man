@@ -4,6 +4,7 @@
 using namespace std;
 char input();
 bool correct(char userChar, string dap);
+char uppercase(char upperChar);
 
 int main()
 {
@@ -27,8 +28,8 @@ int main()
 	{
 		size = dap.length();
 		//자리수출력
-		for(int i=0;i<size;i++)
-			cout << "_";
+		for (int i = 0; i < size; i++)
+			cout << "_" << " ";
 
 		//유저문자입력
 		userChar=input();
@@ -43,6 +44,12 @@ int main()
 
 
 
+}
+
+//대문자-> 소문자 변환
+char uppercase(char upperChar)
+{
+	return upperChar = static_cast<char>(upperChar + ('a' - 'A'));
 }
 
 //유저의 문자입력
