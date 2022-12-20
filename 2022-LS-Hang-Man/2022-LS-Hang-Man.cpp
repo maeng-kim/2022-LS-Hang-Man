@@ -3,7 +3,7 @@
 #include <ctime>
 using namespace std;
 char input();
-bool correct(char userChar, string dap);
+string correct(char userChar, const string dap, const int size, string& userDap);
 char uppercase(char upperChar);
 
 int main()
@@ -17,7 +17,7 @@ int main()
 	//단어 랜덤으로 선정
 	int index, size;
 	char userChar;
-	string dap;
+	string dap, userDap;
 ;
 	srand(time(0));
 	index = rand() % 15;
@@ -27,17 +27,16 @@ int main()
 	while (true)
 	{
 		size = dap.length();
+
 		//자리수출력
 		for (int i = 0; i < size; i++)
-			cout << "_" << " ";
+			userDap = "_" + userDap;
+		cout << userDap << endl;
 
 		//유저문자입력
 		userChar=input();
 
 		//입력한 문자가 맞았을 시
-		if (correct(userChar, dap, size)) {
-
-		}
 
 	}
 	//최종결과 출력
@@ -61,12 +60,16 @@ char input()
 	return char1;
 }
 
-bool correct(char userChar, string dap, int size)
+string correct(char userChar, const string dap, const int size, string& userDap)
 {
-	for (int j = 0; j < size; j++) {
+	string tempUserDap = userDap;
+
+	for (int j = 0; j < size; j++) 
 		if (dap[j] == userChar)
-			return true;
-		else
-			return false;
-	}
+			userDap[j] = userChar;
+	
+	if (tempUserDap == userDap)
+		cout << "This character does not exist";
+
+	return userDap;
 }
