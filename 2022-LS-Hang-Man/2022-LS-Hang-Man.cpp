@@ -23,15 +23,17 @@ int main()
 	index = rand() % 15;
 	dap = fruits[index];
 
+	size = dap.length();
+
+	//자리수출력
+	for (int i = 0; i < size; i++)
+		userDap = "_" + userDap;
+	cout << userDap << endl;
+
 	//게임 진행(행맨)
 	while (true)
 	{
-		size = dap.length();
 
-		//자리수출력
-		for (int i = 0; i < size; i++)
-			userDap = "_" + userDap;
-		cout << userDap << endl;
 
 		//유저문자입력
 		userChar=input();
