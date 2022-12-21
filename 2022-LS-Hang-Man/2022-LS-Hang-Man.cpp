@@ -5,6 +5,7 @@ using namespace std;
 char input();
 string correct(char userChar, const string dap, const int size, string& userDap);
 char uppercase(char upperChar);
+void currentUserDapPrint(string userDap, int size);
 
 int main()
 {
@@ -27,7 +28,7 @@ int main()
 
 	//자리수출력
 	for (int i = 0; i < size; i++)
-		userDap = "_" + userDap;
+		userDap = "_ " + userDap;
 	cout << userDap << endl;
 
 	//게임 진행(행맨)
@@ -39,7 +40,8 @@ int main()
 		userChar=input();
 
 		//입력한 문자가 맞았을 시
-
+		correct(userChar, dap, size, userDap);
+		currentUserDapPrint(userDap, size);
 	}
 	//최종결과 출력
 
@@ -57,7 +59,7 @@ char uppercase(char upperChar)
 char input()
 {
 	char char1;
-	cout << "Enter a character : ";
+	cout << "\nEnter a character : ";
 	cin >> char1;
 	return char1;
 }
@@ -74,4 +76,11 @@ string correct(char userChar, const string dap, const int size, string& userDap)
 		cout << "This character does not exist";
 
 	return userDap;
+}
+
+void currentUserDapPrint(string userDap, int size)
+{
+	cout << "Current User's Words:";
+	for (int i = 0; i < size; i++)
+		cout << userDap[i];
 }
