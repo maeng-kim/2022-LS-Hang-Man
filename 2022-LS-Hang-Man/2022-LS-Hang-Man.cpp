@@ -30,14 +30,12 @@ int main()
 
 	//자리수출력
 	for (int i = 0; i < size; i++)
-		userDap = "_ " + userDap;
+		userDap = "_" + userDap;
 	cout << userDap << endl;
 
 	//게임 진행(행맨)
-	while (true)
+	while (life!=0)
 	{
-
-
 		//유저문자입력
 		userChar=input();
 
@@ -45,23 +43,19 @@ int main()
 		correct(userChar, dap, size, userDap);
 		currentUserDapPrint(userDap, size);
 
-		if (life != 0) {
-			for (int i = 0; i < size; i++) {
-				if (userDap[i] != '_')
-					continue;
-			}
-			cout << "You are correct!";
-		}
-
-		if (life == 0)
-		{
-			cout << "Game Over";
+		//게임종료
+		//최종성공
+		if (dap == userDap)
 			break;
-		}
+		
 	}
 	//최종결과 출력
+	if(life==0)
+		cout << "\nGame Over\n";
+	else
+		cout << "\nYou are correct!\n";
 
-
+	return 0;
 }
 
 //대문자-> 소문자 변환
@@ -89,8 +83,9 @@ string correct(char userChar, const string dap, const int size, string& userDap)
 	
 	if (tempUserDap == userDap)
 	{
-		cout << "This character does not exist";
+		cout << "This character does not exist\n";
 		life -= 1;
+		cout << "Current life : " << life << "\n";
 	}
 
 	return userDap;
@@ -98,7 +93,7 @@ string correct(char userChar, const string dap, const int size, string& userDap)
 
 void currentUserDapPrint(string userDap, int size)
 {
-	cout << "Current User's Words:";
+	cout << "\nCurrent User's Words:";
 	for (int i = 0; i < size; i++)
 		cout << userDap[i];
 }
