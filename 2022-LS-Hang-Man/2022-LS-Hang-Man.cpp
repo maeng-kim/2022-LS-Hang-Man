@@ -60,7 +60,6 @@ int main()
 	}
 	else
 		cout << "\nYou are correct!\n";
-
 	return 0;
 }
 
