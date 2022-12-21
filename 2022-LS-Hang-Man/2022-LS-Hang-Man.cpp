@@ -11,7 +11,6 @@ int life = 5;
 
 int main()
 {
-	
 	//게임에 필요한 영단어 배열 생성
 	string fruits[15]={"apple", "pear", "grapes", "mango", "watermelon", "orange", 
 "lime", "peach", "mandarin", "blueberry", "plum", "strawberry", "kiwi", "banana", "cherry"};
@@ -50,7 +49,6 @@ int main()
 		//최종성공
 		if (dap == userDap)
 			break;
-		
 	}
 	//최종결과 출력
 	if (life == 0) {
@@ -92,7 +90,6 @@ string correct(char userChar, const string dap, const int size, string& userDap)
 		life -= 1;
 		cout << "Current life : " << life << "\n";
 	}
-
 	return userDap;
 }
 
