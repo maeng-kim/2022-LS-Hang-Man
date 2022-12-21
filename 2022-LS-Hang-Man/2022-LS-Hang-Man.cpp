@@ -7,6 +7,8 @@ string correct(char userChar, const string dap, const int size, string& userDap)
 char uppercase(char upperChar);
 void currentUserDapPrint(string userDap, int size);
 
+int life = 5;
+
 int main()
 {
 	
@@ -42,9 +44,22 @@ int main()
 		//입력한 문자가 맞았을 시
 		correct(userChar, dap, size, userDap);
 		currentUserDapPrint(userDap, size);
+
+		if (life != 0) {
+			for (int i = 0; i < size; i++) {
+				if (userDap[i] != '_')
+					continue;
+			}
+			cout << "You are correct!";
+		}
+
+		if (life == 0)
+		{
+			cout << "Game Over";
+			break;
+		}
 	}
 	//최종결과 출력
-
 
 
 }
@@ -73,7 +88,10 @@ string correct(char userChar, const string dap, const int size, string& userDap)
 			userDap[j] = userChar;
 	
 	if (tempUserDap == userDap)
+	{
 		cout << "This character does not exist";
+		life -= 1;
+	}
 
 	return userDap;
 }
